@@ -5,14 +5,14 @@ import lombok.Setter;
 
 @Getter @Setter
 public class OrderPlaced {
+
     String eventType;
-    Long oredrId;
+    Long orderId;
     Long productId;
     int qty;
     String productName;
 
-    public OrderPlaced()
-    {
-        this.eventType = this.getClass().getSimpleName();
+    public OrderPlaced() {
+        this.eventType = OrderPlaced.class.getSimpleName();
     }
 }

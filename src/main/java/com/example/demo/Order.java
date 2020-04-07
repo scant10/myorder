@@ -26,7 +26,7 @@ public class Order {
     @PostPersist
     public void eventPublish() {
         OrderPlaced orderPlaced = new OrderPlaced();
-        orderPlaced.setOredrId(this.getId());
+        orderPlaced.setOrderId(this.getId());
         orderPlaced.setQty(this.getQty());
         orderPlaced.setProductId(this.getProductId());
         orderPlaced.setProductName(this.getProductName());
@@ -38,7 +38,7 @@ public class Order {
         } catch (JsonProcessingException e) {
             throw new RuntimeException("JSON format exception", e);
         }
-        // System.out.println(json);
+        System.out.println(json);
         Processor processor = DemoApplication.applicationContext.getBean(Processor.class);
         MessageChannel outputChannel = processor.output();
 
